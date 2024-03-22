@@ -17,6 +17,25 @@ public class Queue<T> {
 		this.size = 1;
 	}
 	
+	// Basic Operations: enqueue, dequeue, isEmpty
+	
+	public void enqueue(T element) {
+		Node<T> node = new Node<T>(element);
+		if (this.isEmpty()) {
+			this.head = node;
+			this.tail = node;
+			this.size++;
+			return;
+		}
+		this.tail.setNext(node);
+		this.tail = this.tail.getNext();
+		this.size++;
+	}
+	
+	
+	public boolean isEmpty() {
+		return this.size == 0;
+	}
 }
 
 
