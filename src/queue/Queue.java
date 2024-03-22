@@ -32,6 +32,25 @@ public class Queue<T> {
 		this.size++;
 	}
 	
+	public T dequeue() {
+		if (this.isEmpty()) {
+			 return null;
+		}
+		
+		Node<T> deleted = this.head;
+		
+		if (this.size == 1) {
+			this.head = null;
+			this.tail = null;
+			this.size--;
+			return deleted.getData();
+		}
+		
+		this.head = this.head.getNext();
+		this.size--;
+		
+		return deleted.getData();
+	}
 	
 	public boolean isEmpty() {
 		return this.size == 0;
